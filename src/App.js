@@ -8,7 +8,7 @@ function App() {
       <div className="chessBoard">
         <ul >
           {data.chessHouses.map((e) => (
-            <li className={`${e.color}`}>{e.spot}</li>
+            <li className={`${e.color} ${e.spot[1]=== '2' ? 'pawn': ''}`}>{e.spot}</li>
           ))}
         </ul>
       </div>

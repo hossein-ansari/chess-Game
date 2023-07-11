@@ -23,68 +23,75 @@ const AllDatasProvider = ({ children }) => {
         color: colorSet,
       });
       colorSet === "white" ? (colorSet = "black") : (colorSet = "white");
-      if (I == 7) {
+      if (I === 7) {
         colorSet === "white" ? (colorSet = "black") : (colorSet = "white");
       }
     }
   }
-  const [peases, setPeases] = useState([
+  // pieces 
+  
+  const [pieces, setPeases] = useState([
     {
       roll: "pawn",
       point: 1,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
       enPassant: EnPassant,
     },
     {
       roll: "rook",
-      point: 1,
+      point: 5,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
     },
     {
       roll: "knight",
-      point: 1,
+      point: 3,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
     },
     {
       roll: "bishop",
-      point: 1,
+      point: 3,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
     },
     {
       roll: "queen",
-      point: 1,
+      point: 8,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
     },
     {
       roll: "king",
-      point: 1,
+      point: 0,
       shape: "",
       color: "",
-      position: [{ X: "", Y: "" }],
+      position: '',
       killAble: true,
       movement: pawnMoveMent,
     },
   ]);
+  // render pieces 
+  const [blackPawns,setBlackPawns] = useState([])
+  // useEffect(()=>{
+    
+  // },[])
   function EnPassant() {}
   function pawnMoveMent() {}
   return (
