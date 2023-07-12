@@ -1,0 +1,84 @@
+:root{
+    --back-ground-position :     background-position: center,background-size: cover,background-repeat: no-repeat,
+}
+.white{
+    background-color: white;
+  }
+  .black{
+    background-color: rgb(70, 70, 70);
+    color: white;
+    
+  
+  }
+  .whitePawn{
+      background-image: url(../image/whitepawn.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .whiteRook{
+    background-image: url(../image/whiteRook.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }  
+  .whiteBishop{
+    background-image: url(../image/whiteBishop.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .whiteKnight{
+    background-image: url(../image/whiteKnight.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .whiteKing{
+    background-image: url(../image/whiteKing.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .whiteQueen{
+    background-image: url(../image/whiteQueen.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .blackPawn{
+    background-image: url(../image/blackpawn.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .blackRook{
+      background-image: url(../image/blackRook.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .blackBishop{
+    background-image: url(../image/blackBishop.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .blackKnight{
+    background-image: url(../image/blackKnight.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .blackKing{
+    background-image: url(../image/blackKing.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
+  .blackQueen{
+    background-image: url(../image/blackQueen.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 

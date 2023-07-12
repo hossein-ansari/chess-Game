@@ -1,7 +1,6 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0, 27, 199);
   text-align: center;
   display: flex;
   align-items: center;
@@ -11,7 +10,7 @@
 .chessBoard{
   width: 800px;
   height: 800px;
-  background-color: #fdcdcd;
+
 }
 .chessBoard ul {
   width: 100%;
@@ -27,15 +26,4 @@
   border: 2px solid black;
   width: 100px;
   height: 100px;
-}
-.white{
-  background-color: white;
-}
-.black{
-  background-color: rgb(70, 70, 70);
-  color: white;
-
-}
-.pawn{
-  background-color: red;
 }
