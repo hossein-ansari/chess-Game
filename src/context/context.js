@@ -28,69 +28,67 @@ const AllDatasProvider = ({ children }) => {
       }
     }
   }
-  // pieces 
-  
+  // pieces
+
   const [pieces, setPeases] = useState([
     {
-      roll: "pawn",
+      role: "Pawn",
       point: 1,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
       enPassant: EnPassant,
     },
     {
-      roll: "rook",
+      role: "Rook",
       point: 5,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
     },
     {
-      roll: "knight",
+      role: "knight",
       point: 3,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
     },
     {
-      roll: "bishop",
+      role: "Bishop",
       point: 3,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
     },
     {
-      roll: "queen",
+      role: "Queen",
       point: 8,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
     },
     {
-      roll: "king",
+      role: "King",
       point: 0,
       shape: "",
       color: "",
-      position: '',
+      position: "",
       killAble: true,
       movement: pawnMoveMent,
     },
   ]);
-  // render pieces 
-  const [blackPawns,setBlackPawns] = useState([])
   // useEffect(()=>{
-    
+
   // },[])
   function EnPassant() {}
   function pawnMoveMent() {}
@@ -100,9 +98,11 @@ const AllDatasProvider = ({ children }) => {
         chessHouses,
         houseNumbers,
         alphabet,
+        pieces,
         setHouseNumbers,
         SetAlphabet,
         setChessHouses,
+        setPeases,
       }}
     >
       {children}
