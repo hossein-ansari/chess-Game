@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react";
 import React, { createContext, useEffect, useState } from "react";
 const contextBox = createContext();
 const AllDatasProvider = ({ children }) => {
@@ -32,27 +33,13 @@ const AllDatasProvider = ({ children }) => {
       }
     }
   }
+  // render pieces
+  const [allPieces, setAllPieces] = useState([]);
+  renderWhiteRooks();
+  console.log(allPieces);
   // pieces
 
   const [pieces, setPeases] = useState([
-    {
-      role: "Rook",
-      point: 5,
-      shape: "",
-      color: "",
-      position: [],
-      killAble: true,
-      movement: pawnMoveMent,
-    },
-    {
-      role: "knight",
-      point: 3,
-      shape: "",
-      color: "",
-      position: [],
-      killAble: true,
-      movement: pawnMoveMent,
-    },
     {
       role: "Bishop",
       point: 3,
@@ -60,7 +47,6 @@ const AllDatasProvider = ({ children }) => {
       color: "",
       position: [],
       killAble: true,
-      movement: pawnMoveMent,
     },
     {
       role: "Queen",
@@ -69,7 +55,6 @@ const AllDatasProvider = ({ children }) => {
       color: "",
       position: [],
       killAble: true,
-      movement: pawnMoveMent,
     },
     {
       role: "King",
@@ -78,7 +63,6 @@ const AllDatasProvider = ({ children }) => {
       color: "",
       position: [],
       killAble: false,
-      movement: pawnMoveMent,
     },
     {
       role: "Pawn",
@@ -87,17 +71,111 @@ const AllDatasProvider = ({ children }) => {
       color: "white",
       position: [],
       killAble: true,
-      movement: pawnMoveMent,
-      enPassant: EnPassant,
     },
   ]);
   // useEffect(()=>{
-  // render pieces
-  function pawnMoveMent() {
-      
+  // render pieces functions
+  function renderWhiteRooks() {
+    const defaultPosition = [
+      { X: 1, Y: 1 },
+      { X: 8, Y: 1 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const WhiteRook = {
+        role: "Rook",
+        point: 5,
+        shape: "whiteRook",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPieces.push(WhiteRook);
+    }
   }
-  function EnPassant() {
-      
+  function renderWhiteKnights() {
+    const defaultPosition = [
+      { X: 2, Y: 1 },
+      { X: 7, Y: 1 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const WhiteKnight = {
+        role: "Knight",
+        point: 3,
+        shape: "whiteKnight",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPieces.push(WhiteKnight);
+    }
+  }
+  function renderWhiteBishops() {
+    const defaultPosition = [
+      { X: 3, Y: 1 },
+      { X: 6, Y: 1 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const whiteBishop = {
+        role: "Bishop",
+        point: 3,
+        shape: "whiteBishop",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPieces.push(whiteBishop);
+    }
+  }
+  function renderWhiteQueen() {
+    const defaultPosition = [{ X: 4, Y: 1 }];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const whiteQueen = {
+        role: "Bishop",
+        point: 3,
+        shape: "whiteQueen",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPieces.push(whiteQueen);
+    }
+  }
+  function renderWhiteKing() {
+    const defaultPosition = [{ X: 5, Y: 1 }];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const whiteKing = {
+        role: "Bishop",
+        point: 100,
+        shape: "whiteKing",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: false,
+      };
+      allPieces.push(whiteKing);
+    }
+  }
+  function renderWhitePawns() {
+    const defaultPosition = [
+      { X: 1, Y: 2 },
+      { X: 2, Y: 2 },
+      { X: 3, Y: 2 },
+      { X: 4, Y: 2 },
+      { X: 5, Y: 2 },
+      { X: 6, Y: 2 },
+      { X: 7, Y: 2 },
+      { X: 8, Y: 2 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const whitePawn = {
+        role: "Bishop",
+        point: 100,
+        shape: "whitePawn",
+        color: "white",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: false,
+      };
+      allPieces.push(whitePawn);
+    }
   }
   return (
     <contextBox.Provider
