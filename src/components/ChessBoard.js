@@ -7,7 +7,7 @@ export default function ChessBoard() {
     data.pieces.forEach((P) => {
       if (E.target.className.includes(P.role)) {
         // set position
-        P.position = [e.spot.Row , e.spot.column]
+        P.position = [e.spot.row , e.spot.column, e.spot.dot]
         P.movement(P,E)
     }
     });
@@ -15,6 +15,7 @@ export default function ChessBoard() {
   return (
     <ul>
       {data.chessHouses.map((e) => (
+        
         <li
           key={e.spot}
           onClick={(E) => selectPiece(E,e)}
@@ -33,7 +34,6 @@ export default function ChessBoard() {
             ${e.spot.dot === "c1" || e.spot.dot === "f1" ? "whiteBishop" : ""}
             ${e.spot.dot === "e1" ? "whiteKing" : ""}
             ${e.spot.dot === "d1" ? "whiteQueen" : ""}
-    
           `}
         >
           {e.spot.dot}
