@@ -4,14 +4,14 @@ const AllDatasProvider = ({ children }) => {
   // render board var
   const [houseNumbers, setHouseNumbers] = useState([8, 7, 6, 5, 4, 3, 2, 1]);
   const [alphabet, SetAlphabet] = useState([
-    "a" ,
-    "b" ,
-    "c" ,
-    "d" ,
-    "e" ,
-    "f" ,
-    "g" ,
-    "h" ,
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
   ]);
   const [chessHouses, setChessHouses] = useState([]);
   let colorSet = "white";
@@ -33,7 +33,6 @@ const AllDatasProvider = ({ children }) => {
     }
   }
   // pieces
-  console.log(chessHouses);
 
   const [pieces, setPeases] = useState([
     {
@@ -81,30 +80,24 @@ const AllDatasProvider = ({ children }) => {
       killAble: false,
       movement: pawnMoveMent,
     },
+    {
+      role: "Pawn",
+      point: 1,
+      shape: "whitePawn",
+      color: "white",
+      position: [],
+      killAble: true,
+      movement: pawnMoveMent,
+      enPassant: EnPassant,
+    },
   ]);
   // useEffect(()=>{
-  // render pieces 
-   function pawnRender (){
-    chessHouses.forEach( Dot => {
-      if (Dot.column[1] === '2') {
-        const pawn =  {
-          role: "Pawn",
-          point: 1,
-          shape: "whitePawn",
-          color: "white",
-          position: [Dot.row,Dot.column],
-          killAble: true,
-          movement: pawnMoveMent,
-          enPassant: EnPassant,
-        }
-        
-      }
-
-    });
+  // render pieces
+  function pawnMoveMent() {
+      
   }
-  // },[])
-  function EnPassant() {}
-  function pawnMoveMent(position) {
+  function EnPassant() {
+      
   }
   return (
     <contextBox.Provider
