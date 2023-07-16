@@ -9,7 +9,7 @@ export default function ChessPieces(props) {
     <li className={spot.color}>
       {data.allPieces.map((e) =>
         spot.spot.X === e.position[0] && spot.spot.Y === e.position[1] ? (
-          <li key={e} className={e.shape}>{spot.spot.dot}</li>
+          <li onClick={E=>e.moveMent(e,E)} key={e} className={e.shape}></li>
         ) : (
           ''
         )

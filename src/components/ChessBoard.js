@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { contextBox } from "../context/context";
 import "../style/ChessBoard.css";
 import ChessPieces from "./ChessPieces";
 export default function ChessBoard() {
   const data = useContext(contextBox);
+ 
   return (
     <ul>
       {data.chessHouses.map((e) => (
-        <ChessPieces spots={e}></ChessPieces>
+        <ChessPieces  spots={e}></ChessPieces>
       ))}
     </ul>
   );

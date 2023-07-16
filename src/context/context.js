@@ -150,6 +150,7 @@ const AllDatasProvider = ({ children }) => {
       { X: 8, Y: 2 },
     ];
     for (let i = 0; i < defaultPosition.length; i++) {
+     
       const whitePawn = {
         role: "Pawn",
         point: 1,
@@ -157,10 +158,23 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
+        moveMent : (e,E)=>{
+          allPieces.forEach(l => {
+            console.log(e.position[0]);   
+            console.log(l.position[0]);   
+
+            if (l.position[0] === e.position[0]){
+              console.log('adfs');
+            }
+          });
+
+          // setAllPieces(prev => [...prev, ] )
+        }
       };
       allPiecesCopy.push(whitePawn);
     }
   }
+
 
   function renderBlackRooks() {
     const defaultPosition = [
