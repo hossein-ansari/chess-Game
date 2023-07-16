@@ -17,26 +17,40 @@ const AllDatasProvider = ({ children }) => {
   const [chessHouses, setChessHouses] = useState([]);
   let colorSet = "white";
   // render board function
-  for (let i = 0; i < houseNumbers.length; i++) {
-    for (let I = 0; I < alphabet.length; I++) {
-      chessHouses.push({
-        spot: {
-          row: I,
-          dot: `${alphabet[I]}${houseNumbers[i]}`,
-          column: houseNumbers[i],
-        },
-        color: colorSet,
-      });
-      colorSet === "white" ? (colorSet = "black") : (colorSet = "white");
-      if (I === 7) {
+  function renderBoardFunction() {
+    for (let i = 0; i < houseNumbers.length; i++) {
+      for (let I = 0; I < alphabet.length; I++) {
+        const House = {
+          spot: {
+            X: I + 1,
+            dot: `${alphabet[I]}${houseNumbers[i]}`,
+            Y: houseNumbers[i],
+          },
+          color: colorSet,
+        };
+        chessHouses.push(House);
         colorSet === "white" ? (colorSet = "black") : (colorSet = "white");
+        if (I === 7) {
+          colorSet === "white" ? (colorSet = "black") : (colorSet = "white");
+        }
       }
     }
   }
+  console.log(chessHouses);
   // render pieces
   const [allPieces, setAllPieces] = useState([]);
-  renderWhiteRooks();
-  console.log(allPieces);
+  const allPiecesCopy = [];
+  useEffect(() => {
+    renderWhiteRooks();
+    renderWhiteKnights();
+    renderWhiteBishops();
+    renderWhiteQueen();
+    renderWhiteKing();
+    renderWhitePawns();
+    setAllPieces(allPiecesCopy);
+    renderBoardFunction();
+  }, []);
+
   // pieces
 
   const [pieces, setPeases] = useState([
@@ -89,7 +103,8 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
       };
-      allPieces.push(WhiteRook);
+      allPiecesCopy.push(WhiteRook);
+      console.log(allPiecesCopy);
     }
   }
   function renderWhiteKnights() {
@@ -106,7 +121,7 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
       };
-      allPieces.push(WhiteKnight);
+      allPiecesCopy.push(WhiteKnight);
     }
   }
   function renderWhiteBishops() {
@@ -123,35 +138,35 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
       };
-      allPieces.push(whiteBishop);
+      allPiecesCopy.push(whiteBishop);
     }
   }
   function renderWhiteQueen() {
     const defaultPosition = [{ X: 4, Y: 1 }];
     for (let i = 0; i < defaultPosition.length; i++) {
       const whiteQueen = {
-        role: "Bishop",
+        role: "Queen",
         point: 3,
         shape: "whiteQueen",
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
       };
-      allPieces.push(whiteQueen);
+      allPiecesCopy.push(whiteQueen);
     }
   }
   function renderWhiteKing() {
     const defaultPosition = [{ X: 5, Y: 1 }];
     for (let i = 0; i < defaultPosition.length; i++) {
       const whiteKing = {
-        role: "Bishop",
+        role: "King",
         point: 100,
         shape: "whiteKing",
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
       };
-      allPieces.push(whiteKing);
+      allPiecesCopy.push(whiteKing);
     }
   }
   function renderWhitePawns() {
@@ -167,14 +182,14 @@ const AllDatasProvider = ({ children }) => {
     ];
     for (let i = 0; i < defaultPosition.length; i++) {
       const whitePawn = {
-        role: "Bishop",
+        role: "Pawn",
         point: 100,
         shape: "whitePawn",
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
       };
-      allPieces.push(whitePawn);
+      allPiecesCopy.push(whitePawn);
     }
   }
   return (
@@ -184,6 +199,8 @@ const AllDatasProvider = ({ children }) => {
         houseNumbers,
         alphabet,
         pieces,
+        allPieces,
+        setAllPieces,
         setHouseNumbers,
         SetAlphabet,
         setChessHouses,
