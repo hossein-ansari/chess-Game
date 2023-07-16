@@ -47,47 +47,16 @@ const AllDatasProvider = ({ children }) => {
     renderWhiteQueen();
     renderWhiteKing();
     renderWhitePawns();
+    renderBlackRooks();
+    renderBlackKnights();
+    renderBlackBishops();
+    renderBlackQueen();
+    renderBlackKing();
+    renderBlackPawns();
     setAllPieces(allPiecesCopy);
     renderBoardFunction();
   }, []);
 
-  // pieces
-
-  const [pieces, setPeases] = useState([
-    {
-      role: "Bishop",
-      point: 3,
-      shape: "",
-      color: "",
-      position: [],
-      killAble: true,
-    },
-    {
-      role: "Queen",
-      point: 8,
-      shape: "",
-      color: "",
-      position: [],
-      killAble: true,
-    },
-    {
-      role: "King",
-      point: 0,
-      shape: "",
-      color: "",
-      position: [],
-      killAble: false,
-    },
-    {
-      role: "Pawn",
-      point: 1,
-      shape: "whitePawn",
-      color: "white",
-      position: [],
-      killAble: true,
-    },
-  ]);
-  // useEffect(()=>{
   // render pieces functions
   function renderWhiteRooks() {
     const defaultPosition = [
@@ -183,7 +152,7 @@ const AllDatasProvider = ({ children }) => {
     for (let i = 0; i < defaultPosition.length; i++) {
       const whitePawn = {
         role: "Pawn",
-        point: 100,
+        point: 1,
         shape: "whitePawn",
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
@@ -192,19 +161,122 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(whitePawn);
     }
   }
+
+  function renderBlackRooks() {
+    const defaultPosition = [
+      { X: 1, Y: 8 },
+      { X: 8, Y: 8 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackRook = {
+        role: "Rook",
+        point: 5,
+        shape: "blackRook",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPiecesCopy.push(blackRook);
+    }
+  }
+  function renderBlackKnights() {
+    const defaultPosition = [
+      { X: 2, Y: 8 },
+      { X: 7, Y: 8 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackKnight = {
+        role: "Knight",
+        point: 3,
+        shape: "blackKnight",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPiecesCopy.push(blackKnight);
+    }
+  }
+  function renderBlackBishops() {
+    const defaultPosition = [
+      { X: 3, Y: 8 },
+      { X: 6, Y: 8 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackBishop = {
+        role: "Bishop",
+        point: 3,
+        shape: "blackBishop",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPiecesCopy.push(blackBishop);
+    }
+  }
+  function renderBlackQueen() {
+    const defaultPosition = [{ X: 4, Y: 8 }];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackQueen = {
+        role: "Queen",
+        point: 8,
+        shape: "blackQueen",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: true,
+      };
+      allPiecesCopy.push(blackQueen);
+    }
+  }
+  function renderBlackKing() {
+    const defaultPosition = [{ X: 5, Y: 8 }];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackKing = {
+        role: "King",
+        point: 100,
+        shape: "blackKing",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: false,
+      };
+      allPiecesCopy.push(blackKing);
+    }
+  }
+  function renderBlackPawns() {
+    const defaultPosition = [
+      { X: 1, Y: 7 },
+      { X: 2, Y: 7 },
+      { X: 3, Y: 7 },
+      { X: 4, Y: 7 },
+      { X: 5, Y: 7 },
+      { X: 6, Y: 7 },
+      { X: 7, Y: 7 },
+      { X: 8, Y: 7 },
+    ];
+    for (let i = 0; i < defaultPosition.length; i++) {
+      const blackPawn = {
+        role: "Pawn",
+        point: 1,
+        shape: "blackPawn",
+        color: "black",
+        position: [defaultPosition[i].X, defaultPosition[i].Y],
+        killAble: false,
+      };
+      allPiecesCopy.push(blackPawn);
+    }
+  }
+  // black pieces
   return (
     <contextBox.Provider
       value={{
         chessHouses,
         houseNumbers,
         alphabet,
-        pieces,
+
         allPieces,
         setAllPieces,
         setHouseNumbers,
         SetAlphabet,
         setChessHouses,
-        setPeases,
       }}
     >
       {children}
