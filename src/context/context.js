@@ -158,17 +158,14 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
         moveMent: (e, E) => {
-          const copecopy = [...allPiecesCopy]
-          const newPos = copecopy.find(
+          const allPiecesCopyCopy = [...allPiecesCopy]
+          const newPos = allPiecesCopyCopy.find(
             (P) =>
               P.position[0] === e.position[0] && P.position[1] === e.position[1]
           );
-          newPos.position[1] = 4
-
-
-          setAllPieces(copecopy);
-          console.log(copecopy);
-          setChessHouses(prev => prev)
+            
+          newPos.position[1] = newPos.position[1] + 1
+          setAllPieces(allPiecesCopyCopy);
         },
       };
       allPiecesCopy.push(whitePawn);
