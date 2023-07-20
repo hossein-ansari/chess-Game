@@ -168,22 +168,22 @@ const AllDatasProvider = ({ children }) => {
           const Xcord = Cord.position[0];
           const Ycord = Cord.position[1];
           let newCord;
-          let suggestionsCopy = [...suggestions]
+          let suggestionsCopy = []
           // moveMent algorithm
           for (let n = -1; n <= 1; n++) {
-            newCord = { X: Ycord + 1, Y: Xcord + n };
+            newCord = { X: Xcord + n , Y: Ycord + 1 };
             suggestionsCopy.push(newCord);
           } 
           setSuggestions(suggestionsCopy)        
-          console.log(suggestions);
           console.log(suggestionsCopy);
-
+          
           setAllPieces(allPiecesCopyCopy);
         },
       };
       allPiecesCopy.push(whitePawn);
     }
   }
+  
 
   function renderBlackRooks() {
     const defaultPosition = [
