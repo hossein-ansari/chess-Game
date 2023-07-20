@@ -8,8 +8,7 @@ export default function ChessPieces(props) {
   return (
     <li
       className={`${spot.color} ${data.suggestions.map((C) =>
-        spot.spot.X === C.X && spot.spot.Y === C.Y ? "suggestion" : ''
-      )}`}
+        (spot.spot.X === C.X && spot.spot.Y === C.Y) ? " suggestion ": null)}`}
     >
       {data.allPieces.map((e) =>
         spot.spot.X === e.position[0] && spot.spot.Y === e.position[1] ? (
