@@ -1,4 +1,3 @@
-
 import React, { createContext, useEffect, useState } from "react";
 const contextBox = createContext();
 const AllDatasProvider = ({ children }) => {
@@ -15,8 +14,10 @@ const AllDatasProvider = ({ children }) => {
     "h",
   ]);
   const [chessHouses, setChessHouses] = useState([]);
-  let colorSet = "white";
+  // movement algorithm
+  const [suggestions, setSuggestions] = useState([]);
   // render board function
+  let colorSet = "white";
   function renderBoardFunction() {
     for (let i = 0; i < houseNumbers.length; i++) {
       for (let I = 0; I < alphabet.length; I++) {
@@ -35,8 +36,8 @@ const AllDatasProvider = ({ children }) => {
         }
       }
     }
+    console.log(chessHouses);
   }
-  console.log(chessHouses);
   // render pieces
   const [allPieces, setAllPieces] = useState([]);
   const allPiecesCopy = [];
@@ -158,13 +159,25 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
         moveMent: (e, E) => {
-          const allPiecesCopyCopy = [...allPiecesCopy]
-          const newPos = allPiecesCopyCopy.find(
+          setSuggestions([])
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopyCopy.find(
             (P) =>
               P.position[0] === e.position[0] && P.position[1] === e.position[1]
           );
-            
-          newPos.position[1] = newPos.position[1] + 1
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let newCord;
+          let suggestionsCopy = [...suggestions]
+          // moveMent algorithm
+          for (let n = -1; n <= 1; n++) {
+            newCord = { X: Ycord + 1, Y: Xcord + n };
+            suggestionsCopy.push(newCord);
+          } 
+          setSuggestions(suggestionsCopy)        
+          console.log(suggestions);
+          console.log(suggestionsCopy);
+
           setAllPieces(allPiecesCopyCopy);
         },
       };
@@ -281,8 +294,9 @@ const AllDatasProvider = ({ children }) => {
         chessHouses,
         houseNumbers,
         alphabet,
-
         allPieces,
+        suggestions,
+        setSuggestions,
         setAllPieces,
         setHouseNumbers,
         SetAlphabet,

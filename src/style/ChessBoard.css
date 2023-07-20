@@ -78,3 +78,7 @@
     background-size: cover;
     background-repeat: no-repeat;
   } 
+  .suggestion{
+    background-color: red;
+    margin: 20px;
+  }

@@ -6,12 +6,19 @@ export default function ChessPieces(props) {
   const data = useContext(contextBox);
 
   return (
-    <li className={spot.color}>
+    <li
+      className={`${spot.color} ${data.suggestions.map((C) => (
+        spot.spot.X === C.X && spot.spot.Y === C.Y ? "suggestion" : null))}`}
+    >
       {data.allPieces.map((e) =>
         spot.spot.X === e.position[0] && spot.spot.Y === e.position[1] ? (
-          <li onClick={E=>e.moveMent(e,E)} key={e} className={e.shape}></li>
+          <li
+            onClick={(E) => e.moveMent(e, E)}
+            key={e}
+            className={e.shape}
+          ></li>
         ) : (
-          ''
+          ""
         )
       )}
     </li>
