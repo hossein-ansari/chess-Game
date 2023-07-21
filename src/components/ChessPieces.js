@@ -5,7 +5,6 @@ export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
   function changeCordPiece(e) {
-    console.log(e.classList);
     data.suggestions.forEach((C) => {
       if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
         const allPiecesCopy = [...data.allPieces];

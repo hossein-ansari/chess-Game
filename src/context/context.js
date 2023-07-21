@@ -151,7 +151,6 @@ const AllDatasProvider = ({ children }) => {
       { X: 8, Y: 2 },
     ];
     for (let i = 0; i < defaultPosition.length; i++) {
-
       const whitePawn = {
         role: "Pawn",
         point: 1,
@@ -160,24 +159,25 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
         moveMent: (e, E) => {
-          setSuggestions([])
+          setSuggestions([]);
           const allPiecesCopyCopy = [...allPiecesCopy];
           const Cord = allPiecesCopy.find(
             (P) =>
-            P.position[0] === e.position[0] && P.position[1] === e.position[1]
-            );
-            setSuggestions([Cord])
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+          setSuggestions([Cord]);
           const Xcord = Cord.position[0];
           const Ycord = Cord.position[1];
-          let newCord;
-          let suggestionsCopy = []
+          
+          let suggestionsCord = [
+            Cord,
+            { X: Xcord + -1, Y: Ycord + 1 ,sameColor:false,differentColor:true},
+            { X: Xcord + 0, Y: Ycord + 1 ,sameColor:false,differentColor:false},
+            { X: Xcord + 1, Y: Ycord + 1 ,sameColor:false,differentColor:true},
+          ];
           // moveMent algorithm
-          suggestionsCopy.push(Cord)
-          for (let n = -1; n <= 1; n++) {
-            newCord = { X: Xcord + n , Y: Ycord + 1 };
-            suggestionsCopy.push(newCord);
-          } 
-          setSuggestions(suggestionsCopy)        
+          
+          setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
       };
