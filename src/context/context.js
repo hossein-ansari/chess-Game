@@ -151,6 +151,7 @@ const AllDatasProvider = ({ children }) => {
       { X: 8, Y: 2 },
     ];
     for (let i = 0; i < defaultPosition.length; i++) {
+
       const whitePawn = {
         role: "Pawn",
         point: 1,
@@ -161,30 +162,28 @@ const AllDatasProvider = ({ children }) => {
         moveMent: (e, E) => {
           setSuggestions([])
           const allPiecesCopyCopy = [...allPiecesCopy];
-          const Cord = allPiecesCopyCopy.find(
+          const Cord = allPiecesCopy.find(
             (P) =>
-              P.position[0] === e.position[0] && P.position[1] === e.position[1]
-          );
+            P.position[0] === e.position[0] && P.position[1] === e.position[1]
+            );
+            setSuggestions([Cord])
           const Xcord = Cord.position[0];
           const Ycord = Cord.position[1];
           let newCord;
           let suggestionsCopy = []
           // moveMent algorithm
+          suggestionsCopy.push(Cord)
           for (let n = -1; n <= 1; n++) {
             newCord = { X: Xcord + n , Y: Ycord + 1 };
             suggestionsCopy.push(newCord);
           } 
           setSuggestions(suggestionsCopy)        
-          console.log(suggestionsCopy);
-          
           setAllPieces(allPiecesCopyCopy);
         },
       };
       allPiecesCopy.push(whitePawn);
     }
   }
-  
-
   function renderBlackRooks() {
     const defaultPosition = [
       { X: 1, Y: 8 },
