@@ -5,7 +5,7 @@ export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
   function changeCordPiece(e) {
-    data.suggestions.forEach((C) => {
+    data.suggestions.forEach((C,index) => {
       if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
         const allPiecesCopy = [...data.allPieces];
         const oldCoordinate = allPiecesCopy.find(
@@ -13,11 +13,16 @@ export default function ChessPieces(props) {
             P.position[0] === data.suggestions[0].position[0] &&
             P.position[1] === data.suggestions[0].position[1]
         );
-        oldCoordinate.position = [C.X,C.Y];
-        data.setAllPieces(allPiecesCopy);
-        data.setSuggestions([])
+
+        if (C.canMoveHandler === true) {
+
+          oldCoordinate.position = [C.X,C.Y];
+          data.setAllPieces(allPiecesCopy);
+          data.setSuggestions([])
+        }
+        
       }
-      // console.log(C.position);
+     
     });
   }
   return (
