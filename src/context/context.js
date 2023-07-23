@@ -173,9 +173,10 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord + 1 },
             { X: Xcord + 0, Y: Ycord + 1 },
             { X: Xcord + 1, Y: Ycord + 1 },
+            
           ];
           // moveMent algorithm
-
+         
           suggestionsCord.forEach((C, index) => {
             const canMoveCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
@@ -198,7 +199,7 @@ const AllDatasProvider = ({ children }) => {
             C.canMoveHandler = canMove;
           });
 
-          console.log(suggestionsCord);
+          
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
@@ -304,6 +305,50 @@ const AllDatasProvider = ({ children }) => {
         color: "black",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
+        moveMent: (e, E) => {
+          setSuggestions([]);
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopy.find(
+            (P) =>
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let suggestionsCord = [
+            Cord,
+            { X: Xcord + -1, Y: Ycord - 1 },
+            { X: Xcord + 0, Y: Ycord - 1 },
+            { X: Xcord + 1, Y: Ycord - 1 },
+          ];
+          // moveMent algorithm
+
+          suggestionsCord.forEach((C, index) => {
+            const canMoveCord = allPiecesCopy.find(
+              (P) => P.position[0] === C.X && P.position[1] === C.Y
+            );
+            let canMove;
+            if (canMoveCord !== undefined && canMoveCord.color === e.color) {
+              
+              canMove = false;
+            } else if (
+              canMoveCord !== undefined &&
+              canMoveCord.color !== e.color &&
+              index !== 2
+            ) {
+              canMove = true;
+            } else if (canMoveCord === undefined && index !== 2) {
+              canMove = false;
+            } else {
+              canMove = true;
+            }
+            C.canMoveHandler = canMove;
+          });
+
+         
+          setSuggestions(suggestionsCord);
+          setAllPieces(allPiecesCopyCopy);
+        },
       };
       allPiecesCopy.push(blackPawn);
     }
