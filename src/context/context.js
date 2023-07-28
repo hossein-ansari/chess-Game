@@ -14,6 +14,8 @@ const AllDatasProvider = ({ children }) => {
     "h",
   ]);
   const [chessHouses, setChessHouses] = useState([]);
+  const [removedPieces, setRemovedPieces] = useState([]);
+
   // movement algorithm
   const [suggestions, setSuggestions] = useState([]);
   // render board function
@@ -74,7 +76,7 @@ const AllDatasProvider = ({ children }) => {
         killAble: true,
       };
       allPiecesCopy.push(WhiteRook);
-      console.log(allPiecesCopy);
+      
     }
   }
   function renderWhiteKnights() {
@@ -173,17 +175,16 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord + 1 },
             { X: Xcord + 0, Y: Ycord + 1 },
             { X: Xcord + 1, Y: Ycord + 1 },
-            
           ];
           // moveMent algorithm
-         
+
           suggestionsCord.forEach((C, index) => {
             const canMoveCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
             let canMove;
             if (canMoveCord !== undefined && canMoveCord.color === e.color) {
-              console.log(canMoveCord.color, e.color);
+              
               canMove = false;
             } else if (
               canMoveCord !== undefined &&
@@ -199,7 +200,6 @@ const AllDatasProvider = ({ children }) => {
             C.canMoveHandler = canMove;
           });
 
-          
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
@@ -329,7 +329,6 @@ const AllDatasProvider = ({ children }) => {
             );
             let canMove;
             if (canMoveCord !== undefined && canMoveCord.color === e.color) {
-              
               canMove = false;
             } else if (
               canMoveCord !== undefined &&
@@ -345,7 +344,6 @@ const AllDatasProvider = ({ children }) => {
             C.canMoveHandler = canMove;
           });
 
-         
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
@@ -353,6 +351,8 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(blackPawn);
     }
   }
+  // remove pieces check 
+
   // black pieces
   return (
     <contextBox.Provider
@@ -362,6 +362,8 @@ const AllDatasProvider = ({ children }) => {
         alphabet,
         allPieces,
         suggestions,
+        removedPieces,
+        setRemovedPieces,
         setSuggestions,
         setAllPieces,
         setHouseNumbers,

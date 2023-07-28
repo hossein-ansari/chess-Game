@@ -5,7 +5,7 @@ export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
   function changeCordPiece(e) {
-    data.suggestions.forEach((C, index) => {
+    data.suggestions.forEach((C) => {
       if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
         // find piece
         let allPiecesCopy = [...data.allPieces];
@@ -14,25 +14,27 @@ export default function ChessPieces(props) {
             P.position[0] === data.suggestions[0].position[0] &&
             P.position[1] === data.suggestions[0].position[1]
         );
-        console.log(C);
         // move and fight
         if (C.canMoveHandler === true) {
-          let RSDER = allPiecesCopy.find(
+          let removedPiecesCopy = [...data.removedPieces];
+          oldCoordinate.position = [C.X, C.Y];
+          let removedPiece = allPiecesCopy.findIndex(
             (P) =>
               P.position[0] === C.X &&
-              P.position[1] === C.Y
+              P.position[1] === C.Y &&
+              P.color !== oldCoordinate.color
           );
-          if (RSDER !== undefined) {
-            
-            allPiecesCopy = allPiecesCopy.filter(
-              (P) => P !== RSDER
-              );
-              e.target.className = ''
-          }
          
-          console.log(e.target.className);
-          
-          oldCoordinate.position = [C.X, C.Y];
+
+          if (removedPiece !== -1) {
+            removedPiecesCopy.push(removedPiece);
+            console.log(removedPiecesCopy);
+            console.log(allPiecesCopy);
+
+            data.setAllPieces(allPiecesCopy);
+            data.setRemovedPieces(removedPiecesCopy);
+          }
+
           data.setAllPieces(allPiecesCopy);
           data.setSuggestions([]);
         }
@@ -46,17 +48,17 @@ export default function ChessPieces(props) {
         spot.spot.X === C.X && spot.spot.Y === C.Y ? " suggestion " : null
       )}`}
     >
-      {useMemo(()=>data.allPieces.map((e) =>
+      {data.allPieces.map((e) =>
         spot.spot.X === e.position[0] && spot.spot.Y === e.position[1] ? (
           <li
             onClick={(E) => e.moveMent(e, E)}
-            key={e}
+            
             className={e.shape}
           ></li>
         ) : (
           ""
         )
-      ),[data.allPieces]) }
+      )}
     </li>
   );
 }
