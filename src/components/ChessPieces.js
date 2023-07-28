@@ -16,23 +16,17 @@ export default function ChessPieces(props) {
         );
         // move and fight
         if (C.canMoveHandler === true) {
-          let removedPiecesCopy = [...data.removedPieces];
+         
+          
           oldCoordinate.position = [C.X, C.Y];
-          let removedPiece = allPiecesCopy.findIndex(
+          let removedPiece = allPiecesCopy.find(
             (P) =>
               P.position[0] === C.X &&
               P.position[1] === C.Y &&
               P.color !== oldCoordinate.color
           );
-         
-
-          if (removedPiece !== -1) {
-            removedPiecesCopy.push(removedPiece);
-            console.log(removedPiecesCopy);
-            console.log(allPiecesCopy);
-
-            data.setAllPieces(allPiecesCopy);
-            data.setRemovedPieces(removedPiecesCopy);
+          if (removedPiece !== undefined) {
+            removedPiece.position = [0, 0];
           }
 
           data.setAllPieces(allPiecesCopy);
@@ -50,11 +44,7 @@ export default function ChessPieces(props) {
     >
       {data.allPieces.map((e) =>
         spot.spot.X === e.position[0] && spot.spot.Y === e.position[1] ? (
-          <li
-            onClick={(E) => e.moveMent(e, E)}
-            
-            className={e.shape}
-          ></li>
+          <li onClick={(E) => e.moveMent(e, E)} className={e.shape}></li>
         ) : (
           ""
         )

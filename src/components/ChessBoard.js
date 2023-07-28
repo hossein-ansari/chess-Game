@@ -5,10 +5,8 @@ import ChessPieces from "./ChessPieces";
 export default function ChessBoard() {
   const data = useContext(contextBox);
   useEffect(() => {
-    data.removedPieces.forEach((r) => {
-      console.log(r);
-      data.allPieces.splice(r,1);
-    });
+    let allPiecesCopy = [...data.allPieces]
+
   }, [data.removedPieces]);
   return (
     <ul>
