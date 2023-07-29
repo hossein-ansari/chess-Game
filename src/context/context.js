@@ -91,21 +91,9 @@ const AllDatasProvider = ({ children }) => {
             let i = 1;
             while (i <= 7) {
               suggestionsCord.push({ X: Xcord - i, Y: Ycord });
-              i++;
-            }
-            i = 1;
-            while (i <= 7) {
-              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
-              i++;
-            }
-            i = 1;
-            while (i <= 7) {
-              suggestionsCord.push({ X: Xcord, Y: Ycord - i });
-              i++;
-            }
-            i = 1;
-            while (i <= 7) {
               suggestionsCord.push({ X: Xcord, Y: Ycord + i });
+              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
+              suggestionsCord.push({ X: Xcord, Y: Ycord - i });
               i++;
             }
           }
@@ -115,25 +103,28 @@ const AllDatasProvider = ({ children }) => {
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
             let canMove;
-            console.log(C.X, canMoveCord);
-            if (canMoveCord === undefined && canMoveCord.Y < C.Y) {
-              canMove = true;
-            } else {
-              canMove = false;
-            }
-            if (canMoveCord !== undefined && canMoveCord.color === e.color) {
-              if (canMoveCord.Y >= C.Y) {
-                canMove = false;
-              } else {
+            if (canMoveCord !== undefined) {
+              if (
+                canMoveCord.position[0] === C.X &&
+                canMoveCord.position[1] > C.Y
+              ) {
                 canMove = true;
+              } else if (
+                canMoveCord.position[1] === C.Y &&
+                canMoveCord.position[0] > C.X
+              ) {
+                canMove = true;
+              } else {
+                canMove = false;
               }
+              console.log(
+                canMoveCord.position[0],
+                canMoveCord.position[1],
+                C.X,
+                C.Y
+              );
             }
 
-            // else if (canMoveCord === undefined && index !== 2) {
-            //   canMove = false;
-            // } else {
-            //   canMove = true;
-            // }
             C.canMoveHandler = canMove;
           });
 
