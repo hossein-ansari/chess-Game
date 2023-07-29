@@ -16,8 +16,6 @@ export default function ChessPieces(props) {
         );
         // move and fight
         if (C.canMoveHandler === true) {
-         
-          
           oldCoordinate.position = [C.X, C.Y];
           let removedPiece = allPiecesCopy.find(
             (P) =>
@@ -28,7 +26,6 @@ export default function ChessPieces(props) {
           if (removedPiece !== undefined) {
             removedPiece.position = [0, 0];
           }
-
           data.setAllPieces(allPiecesCopy);
           data.setSuggestions([]);
         }

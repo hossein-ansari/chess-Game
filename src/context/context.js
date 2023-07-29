@@ -74,9 +74,74 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
+        moveMent: (e, E) => {
+          setSuggestions([]);
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopy.find(
+            (P) =>
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let suggestionsCord = [];
+          cordHandler();
+          function cordHandler(params) {
+            suggestionsCord.push(Cord);
+            let i = 1;
+            while (i <= 7) {
+              suggestionsCord.push({ X: Xcord - i, Y: Ycord });
+              i++;
+            }
+            i = 1;
+            while (i <= 7) {
+              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
+              i++;
+            }
+            i = 1;
+            while (i <= 7) {
+              suggestionsCord.push({ X: Xcord, Y: Ycord - i });
+              i++;
+            }
+            i = 1;
+            while (i <= 7) {
+              suggestionsCord.push({ X: Xcord, Y: Ycord + i });
+              i++;
+            }
+          }
+          // moveMent algorithm
+          suggestionsCord.forEach((C, index) => {
+            const canMoveCord = allPiecesCopy.find(
+              (P) => P.position[0] === C.X && P.position[1] === C.Y
+            );
+            let canMove;
+            console.log(C.X, canMoveCord);
+            if (canMoveCord === undefined && canMoveCord.Y < C.Y) {
+              canMove = true;
+            } else {
+              canMove = false;
+            }
+            if (canMoveCord !== undefined && canMoveCord.color === e.color) {
+              if (canMoveCord.Y >= C.Y) {
+                canMove = false;
+              } else {
+                canMove = true;
+              }
+            }
+
+            // else if (canMoveCord === undefined && index !== 2) {
+            //   canMove = false;
+            // } else {
+            //   canMove = true;
+            // }
+            C.canMoveHandler = canMove;
+          });
+
+          setSuggestions(suggestionsCord);
+          setAllPieces(allPiecesCopyCopy);
+        },
       };
       allPiecesCopy.push(WhiteRook);
-      
     }
   }
   function renderWhiteKnights() {
@@ -184,7 +249,6 @@ const AllDatasProvider = ({ children }) => {
             );
             let canMove;
             if (canMoveCord !== undefined && canMoveCord.color === e.color) {
-              
               canMove = false;
             } else if (
               canMoveCord !== undefined &&
@@ -351,7 +415,7 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(blackPawn);
     }
   }
-  // remove pieces check 
+  // remove pieces check
 
   // black pieces
   return (
