@@ -38,7 +38,6 @@ const AllDatasProvider = ({ children }) => {
         }
       }
     }
-    console.log(chessHouses);
   }
   // render pieces
   const [allPieces, setAllPieces] = useState([]);
@@ -89,45 +88,40 @@ const AllDatasProvider = ({ children }) => {
           function cordHandler(params) {
             suggestionsCord.push(Cord);
             let i = 1;
-            while (i <= 7) {
-              suggestionsCord.push({ X: Xcord - i, Y: Ycord });
+            while (i < 8) {
               suggestionsCord.push({ X: Xcord, Y: Ycord + i });
-              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              suggestionsCord.push({ X: Xcord - i, Y: Ycord });
+              i++;
+            }
+            i = 1;
+            while (i < 8) {
               suggestionsCord.push({ X: Xcord, Y: Ycord - i });
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
               i++;
             }
           }
           // moveMent algorithm
+          let piecesInSuggestion = [];
           suggestionsCord.forEach((C, index) => {
             const canMoveCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
-            let canMove;
             if (canMoveCord !== undefined) {
-              if (
-                canMoveCord.position[0] === C.X &&
-                canMoveCord.position[1] > C.Y
-              ) {
-                canMove = true;
-              } else if (
-                canMoveCord.position[1] === C.Y &&
-                canMoveCord.position[0] > C.X
-              ) {
-                canMove = true;
-              } else {
-                canMove = false;
-              }
-              console.log(
-                canMoveCord.position[0],
-                canMoveCord.position[1],
-                C.X,
-                C.Y
-              );
+              piecesInSuggestion.push(canMoveCord.position);
             }
-
-            C.canMoveHandler = canMove;
           });
-
+          // find available Cord
+         
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
