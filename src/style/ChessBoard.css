@@ -2,7 +2,7 @@
     background-color: white;
   }
   .black{
-    background-color: rgb(90, 90, 90);
+    background-color: rgb(97, 97, 97);
     color: white;
     
   }
@@ -79,6 +79,6 @@
     background-repeat: no-repeat;
   } 
   .suggestion{
-    background-color: red;
- 
+    background-color: #ebd700;
+   
   }

@@ -310,7 +310,6 @@ const AllDatasProvider = ({ children }) => {
           ];
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
-           
             const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
