@@ -73,7 +73,7 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
-        moveMent: (e, E) => { 
+        moveMent: (e, E) => {
           // moveMent algorithm
           setSuggestions([]);
           const allPiecesCopyCopy = [...allPiecesCopy];
@@ -199,7 +199,6 @@ const AllDatasProvider = ({ children }) => {
               i++;
             }
           }
-         
 
           console.log(suggestionsCord);
 
@@ -310,24 +309,24 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + 1, Y: Ycord + 1 },
           ];
           // moveMent algorithm
-
           suggestionsCord.forEach((C, index) => {
+           
             const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
             let canMove;
-            if (busyCord !== undefined && busyCord.color === e.color) {
-              canMove = false;
-            } else if (
-              busyCord !== undefined &&
-              busyCord.color !== e.color &&
-              index !== 2
-            ) {
+            if (busyCord === undefined && index === 2) {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
-            } else {
+            } else if (
+              busyCord !== undefined &&
+              index !== 2 &&
+              busyCord.color !== Cord.color
+            ) {
               canMove = true;
+            } else {
+              canMove = false;
             }
             C.canMoveHandler = canMove;
           });
@@ -458,10 +457,10 @@ const AllDatasProvider = ({ children }) => {
               };
               const busyCord = allPiecesCopy.find(
                 (P) =>
-                P.position[0] === cordSuggest.X &&
-                P.position[1] === cordSuggest.Y
-                );
-                if (busyCord === undefined) {
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
                 // moveMent algorithm
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
@@ -572,7 +571,6 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
         moveMent: (e, E) => {
-          // moveMent algorithm
           setSuggestions([]);
           const allPiecesCopyCopy = [...allPiecesCopy];
           const Cord = allPiecesCopy.find(
@@ -588,24 +586,25 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + 0, Y: Ycord - 1 },
             { X: Xcord + 1, Y: Ycord - 1 },
           ];
-
+          // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
-            const canMoveCord = allPiecesCopy.find(
+            const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
+
             let canMove;
-            if (canMoveCord !== undefined && canMoveCord.color === e.color) {
+            if (busyCord === undefined && index === 2) {
+              canMove = true;
+            } else if (busyCord === undefined && index !== 2) {
               canMove = false;
             } else if (
-              canMoveCord !== undefined &&
-              canMoveCord.color !== e.color &&
-              index !== 2
+              busyCord !== undefined &&
+              index !== 2 &&
+              busyCord.color !== Cord.color
             ) {
               canMove = true;
-            } else if (canMoveCord === undefined && index !== 2) {
-              canMove = false;
             } else {
-              canMove = true;
+              canMove = false;
             }
             C.canMoveHandler = canMove;
           });
