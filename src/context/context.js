@@ -89,39 +89,57 @@ const AllDatasProvider = ({ children }) => {
             suggestionsCord.push(Cord);
             let i = 1;
             while (i < 8) {
-              suggestionsCord.push({ X: Xcord, Y: Ycord + i });
+              suggestionsCord.push({
+                X: Xcord,
+                Y: Ycord + i,
+                canMoveHandler: false,
+              });
+              i++;
+            }
+            i = 1;
+            while (i < 8) {
+              suggestionsCord.push({
+                X: Xcord,
+                Y: Ycord - i,
+                canMoveHandler: false,
+              });
               i++;
             }
             i = 1;
 
             while (i < 8) {
-              suggestionsCord.push({ X: Xcord - i, Y: Ycord });
-              i++;
-            }
-            i = 1;
-            while (i < 8) {
-              suggestionsCord.push({ X: Xcord, Y: Ycord - i });
+              suggestionsCord.push({
+                X: Xcord - i,
+                Y: Ycord,
+                canMoveHandler: false,
+              });
               i++;
             }
             i = 1;
 
             while (i < 8) {
-              suggestionsCord.push({ X: Xcord + i, Y: Ycord });
+              suggestionsCord.push({
+                X: Xcord + i,
+                Y: Ycord,
+                canMoveHandler: false,
+              });
               i++;
             }
           }
           // moveMent algorithm
-          let piecesInSuggestion = [];
+         
+          console.log(suggestionsCord);
           suggestionsCord.forEach((C, index) => {
-            const canMoveCord = allPiecesCopy.find(
+            const bussyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
-            if (canMoveCord !== undefined) {
-              piecesInSuggestion.push(canMoveCord.position);
-            }
+            let canMove;
+
+              
+            
           });
           // find available Cord
-         
+
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
