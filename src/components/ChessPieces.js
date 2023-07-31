@@ -36,7 +36,9 @@ export default function ChessPieces(props) {
     <li
       onClick={(e) => changeCordPiece(e)}
       className={`${spot.color} ${data.suggestions.map((C) =>
-        spot.spot.X === C.X && spot.spot.Y === C.Y ? " suggestion " : null
+        spot.spot.X === C.X && spot.spot.Y === C.Y && C.canMoveHandler === true
+          ? " suggestion "
+          : null
       )}`}
     >
       {data.allPieces.map((e) =>

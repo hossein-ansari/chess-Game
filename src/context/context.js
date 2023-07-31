@@ -312,19 +312,19 @@ const AllDatasProvider = ({ children }) => {
           // moveMent algorithm
 
           suggestionsCord.forEach((C, index) => {
-            const canMoveCord = allPiecesCopy.find(
+            const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
             let canMove;
-            if (canMoveCord !== undefined && canMoveCord.color === e.color) {
+            if (busyCord !== undefined && busyCord.color === e.color) {
               canMove = false;
             } else if (
-              canMoveCord !== undefined &&
-              canMoveCord.color !== e.color &&
+              busyCord !== undefined &&
+              busyCord.color !== e.color &&
               index !== 2
             ) {
               canMove = true;
-            } else if (canMoveCord === undefined && index !== 2) {
+            } else if (busyCord === undefined && index !== 2) {
               canMove = false;
             } else {
               canMove = true;
