@@ -73,7 +73,8 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
-        moveMent: (e, E) => {
+        moveMent: (e, E) => { 
+          // moveMent algorithm
           setSuggestions([]);
           const allPiecesCopyCopy = [...allPiecesCopy];
           const Cord = allPiecesCopy.find(
@@ -102,12 +103,14 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
-              }else if (busyCord !== undefined && busyCord.color !== Cord.color){
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
                 break;
-              } 
-              else {
+              } else {
                 break;
               }
               i++;
@@ -127,11 +130,14 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
-              }else if (busyCord !== undefined && busyCord.color !== Cord.color){
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
                 break;
-              }  else {
+              } else {
                 break;
               }
               i++;
@@ -152,11 +158,14 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
-              }else if (busyCord !== undefined && busyCord.color !== Cord.color){
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
                 break;
-              }  else {
+              } else {
                 break;
               }
               i++;
@@ -177,17 +186,20 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
-              }else if (busyCord !== undefined && busyCord.color !== Cord.color){
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
                 break;
-              }  else {
+              } else {
                 break;
               }
               i++;
             }
           }
-          // moveMent algorithm
+         
 
           console.log(suggestionsCord);
 
@@ -369,6 +381,13 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
               } else {
                 break;
               }
@@ -389,6 +408,13 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
               } else {
                 break;
               }
@@ -410,6 +436,13 @@ const AllDatasProvider = ({ children }) => {
               if (busyCord === undefined) {
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
               } else {
                 break;
               }
@@ -425,19 +458,26 @@ const AllDatasProvider = ({ children }) => {
               };
               const busyCord = allPiecesCopy.find(
                 (P) =>
-                  P.position[0] === cordSuggest.X &&
-                  P.position[1] === cordSuggest.Y
-              );
-              if (busyCord === undefined) {
+                P.position[0] === cordSuggest.X &&
+                P.position[1] === cordSuggest.Y
+                );
+                if (busyCord === undefined) {
+                // moveMent algorithm
                 cordSuggest.canMoveHandler = true;
                 suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
               } else {
                 break;
               }
               i++;
             }
           }
-          // moveMent algorithm
 
           console.log(suggestionsCord);
 
@@ -532,6 +572,7 @@ const AllDatasProvider = ({ children }) => {
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
         moveMent: (e, E) => {
+          // moveMent algorithm
           setSuggestions([]);
           const allPiecesCopyCopy = [...allPiecesCopy];
           const Cord = allPiecesCopy.find(
@@ -547,7 +588,6 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + 0, Y: Ycord - 1 },
             { X: Xcord + 1, Y: Ycord - 1 },
           ];
-          // moveMent algorithm
 
           suggestionsCord.forEach((C, index) => {
             const canMoveCord = allPiecesCopy.find(
