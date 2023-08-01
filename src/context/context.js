@@ -1424,6 +1424,7 @@ const AllDatasProvider = ({ children }) => {
             const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
+            
             let canMove;
             if (busyCord === undefined) {
               canMove = true;
