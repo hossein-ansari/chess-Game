@@ -15,8 +15,7 @@ const AllDatasProvider = ({ children }) => {
   ]);
   const [chessHouses, setChessHouses] = useState([]);
   const [removedPieces, setRemovedPieces] = useState([]);
-
-  // movement algorithm
+  // suggestion houses
   const [suggestions, setSuggestions] = useState([]);
   // render board function
   let colorSet = "white";
@@ -60,6 +59,7 @@ const AllDatasProvider = ({ children }) => {
   }, []);
 
   // render pieces functions
+  // white pieces
   function renderWhiteRooks() {
     const defaultPosition = [
       { X: 1, Y: 1 },
@@ -752,6 +752,7 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord + 1 },
             { X: Xcord + 0, Y: Ycord + 1 },
             { X: Xcord + 1, Y: Ycord + 1 },
+            { X: Xcord + 0, Y: Ycord + 2 },
           ];
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
@@ -763,6 +764,9 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
+              if (index === 4 && Cord.position[1] === 2) {
+                canMove = true;
+              }
             } else if (
               busyCord !== undefined &&
               index !== 2 &&
@@ -772,9 +776,10 @@ const AllDatasProvider = ({ children }) => {
             } else {
               canMove = false;
             }
+            console.log(Cord.position[1], index);
             C.canMoveHandler = canMove;
           });
-
+          console.log(suggestionsCord);
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
@@ -782,6 +787,7 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(whitePawn);
     }
   }
+  // black pieces
   function renderBlackRooks() {
     const defaultPosition = [
       { X: 1, Y: 8 },
@@ -1387,7 +1393,6 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(blackQueen);
     }
   }
-
   function renderBlackKing() {
     const defaultPosition = [{ X: 5, Y: 8 }];
     for (let i = 0; i < defaultPosition.length; i++) {
@@ -1424,7 +1429,7 @@ const AllDatasProvider = ({ children }) => {
             const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
-            
+
             let canMove;
             if (busyCord === undefined) {
               canMove = true;
@@ -1479,6 +1484,8 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord - 1 },
             { X: Xcord + 0, Y: Ycord - 1 },
             { X: Xcord + 1, Y: Ycord - 1 },
+            { X: Xcord + 0, Y: Ycord - 2 },
+
           ];
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
@@ -1490,6 +1497,9 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
+              if (index === 4 && Cord.position[1] === 7) {
+                canMove = true;
+              }
             } else if (
               busyCord !== undefined &&
               index !== 2 &&
@@ -1509,9 +1519,7 @@ const AllDatasProvider = ({ children }) => {
       allPiecesCopy.push(blackPawn);
     }
   }
-  // remove pieces check
 
-  // black pieces
   return (
     <contextBox.Provider
       value={{
