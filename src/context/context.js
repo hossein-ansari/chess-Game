@@ -224,6 +224,44 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
+        moveMent: (e, E) => {
+          setSuggestions([]);
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopy.find(
+            (P) =>
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let suggestionsCord = [
+            Cord,
+            { X: Xcord + 2, Y: Ycord + 1 },
+            { X: Xcord + 2, Y: Ycord - 1 },
+            { X: Xcord + 1, Y: Ycord - 2 },
+            { X: Xcord - 1, Y: Ycord - 2 },
+            { X: Xcord - 2, Y: Ycord + 1 },
+            { X: Xcord - 2, Y: Ycord - 1 },
+            { X: Xcord + 1, Y: Ycord + 2 },
+            { X: Xcord - 1, Y: Ycord + 2 },
+          ];
+          // moveMent algorithm
+          suggestionsCord.forEach((C, index) => {
+            const busyCord = allPiecesCopy.find(
+              (P) => P.position[0] === C.X && P.position[1] === C.Y
+            );
+
+            let canMove;
+            if (busyCord !== undefined && busyCord.color === Cord.color) {
+              canMove = false;
+            } else {
+              canMove = true;
+            }
+            C.canMoveHandler = canMove;
+          });
+          setSuggestions(suggestionsCord);
+          setAllPieces(allPiecesCopyCopy);
+        },
       };
       allPiecesCopy.push(WhiteKnight);
     }
