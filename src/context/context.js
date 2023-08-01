@@ -418,6 +418,245 @@ const AllDatasProvider = ({ children }) => {
         color: "white",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: true,
+        moveMent: (e, E) => {
+          // moveMent algorithm
+          setSuggestions([]);
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopy.find(
+            (P) =>
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let suggestionsCord = [];
+          cordHandler();
+          function cordHandler(params) {
+            suggestionsCord.push(Cord);
+            let i = 1;
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord,
+                Y: Ycord + i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord,
+                Y: Ycord - i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord + i,
+                Y: Ycord,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord - i,
+                Y: Ycord,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord + i,
+                Y: Ycord + i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord - i,
+                Y: Ycord - i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord + i,
+                Y: Ycord - i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+            i = 1;
+
+            while (i < 8) {
+              let cordSuggest = {
+                X: Xcord - i,
+                Y: Ycord + i,
+                canMoveHandler: false,
+              };
+              const busyCord = allPiecesCopy.find(
+                (P) =>
+                  P.position[0] === cordSuggest.X &&
+                  P.position[1] === cordSuggest.Y
+              );
+              if (busyCord === undefined) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+              } else if (
+                busyCord !== undefined &&
+                busyCord.color !== Cord.color
+              ) {
+                cordSuggest.canMoveHandler = true;
+                suggestionsCord.push(cordSuggest);
+                break;
+              } else {
+                break;
+              }
+              i++;
+            }
+          }
+          setSuggestions(suggestionsCord);
+          setAllPieces(allPiecesCopyCopy);
+        },
       };
       allPiecesCopy.push(whiteQueen);
     }
@@ -920,7 +1159,6 @@ const AllDatasProvider = ({ children }) => {
             const busyCord = allPiecesCopy.find(
               (P) => P.position[0] === C.X && P.position[1] === C.Y
             );
-
             let canMove;
             if (busyCord === undefined && index === 2) {
               canMove = true;
