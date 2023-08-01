@@ -1398,6 +1398,48 @@ const AllDatasProvider = ({ children }) => {
         color: "black",
         position: [defaultPosition[i].X, defaultPosition[i].Y],
         killAble: false,
+        moveMent: (e, E) => {
+          setSuggestions([]);
+          const allPiecesCopyCopy = [...allPiecesCopy];
+          const Cord = allPiecesCopy.find(
+            (P) =>
+              P.position[0] === e.position[0] && P.position[1] === e.position[1]
+          );
+
+          const Xcord = Cord.position[0];
+          const Ycord = Cord.position[1];
+          let suggestionsCord = [
+            Cord,
+            { X: Xcord + 0, Y: Ycord + 1 },
+            { X: Xcord + 1, Y: Ycord + 1 },
+            { X: Xcord - 1, Y: Ycord + 1 },
+            { X: Xcord + 0, Y: Ycord - 1 },
+            { X: Xcord + 1, Y: Ycord - 1 },
+            { X: Xcord - 1, Y: Ycord - 1 },
+            { X: Xcord + 1, Y: Ycord + 0 },
+            { X: Xcord - 1, Y: Ycord + 0 },
+          ];
+          // moveMent algorithm
+          suggestionsCord.forEach((C, index) => {
+            const busyCord = allPiecesCopy.find(
+              (P) => P.position[0] === C.X && P.position[1] === C.Y
+            );
+            let canMove;
+            if (busyCord === undefined) {
+              canMove = true;
+            } else if (
+              busyCord !== undefined &&
+              Cord.color !== busyCord.color
+            ) {
+              canMove = true;
+            } else {
+              canMove = false;
+            }
+            C.canMoveHandler = canMove;
+          });
+          setSuggestions(suggestionsCord);
+          setAllPieces(allPiecesCopyCopy);
+        },
       };
       allPiecesCopy.push(blackKing);
     }
