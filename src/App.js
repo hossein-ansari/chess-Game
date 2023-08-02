@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { contextBox } from "./context/context";
 import ChessBoard from "./components/ChessBoard";
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Timer />
       <div className="chessBoard">
-      <ChessBoard />
+        <ChessBoard />
       </div>
     </div>
   );

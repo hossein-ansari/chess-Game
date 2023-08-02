@@ -18,11 +18,8 @@ const AllDatasProvider = ({ children }) => {
   // suggestion houses
   const [suggestions, setSuggestions] = useState([]);
   // timers
-  const [blackTimer, setBlackTimer] = useState([
-    { minutes: 10 },
-    { seconds: 0 },
-  ]);
-  const [whiteTimer, setWihteTimer] = useState({ minutes: 10, seconds: 0 });
+  const [blackTimer, setBlackTimer] = useState();
+  const [whiteTimer, setWhiteTimer] = useState();
 
   // render board function
   let colorSet = "white";
@@ -1542,7 +1539,7 @@ const AllDatasProvider = ({ children }) => {
         blackTimer,
         whiteTimer,
         setBlackTimer,
-        setWihteTimer,
+        setWhiteTimer,
         setRemovedPieces,
         setSuggestions,
         setAllPieces,
