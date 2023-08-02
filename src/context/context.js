@@ -17,6 +17,13 @@ const AllDatasProvider = ({ children }) => {
   const [removedPieces, setRemovedPieces] = useState([]);
   // suggestion houses
   const [suggestions, setSuggestions] = useState([]);
+  // timers
+  const [blackTimer, setBlackTimer] = useState([
+    { minutes: 10 },
+    { seconds: 0 },
+  ]);
+  const [whiteTimer, setWihteTimer] = useState({ minutes: 10, seconds: 0 });
+
   // render board function
   let colorSet = "white";
   function renderBoardFunction() {
@@ -752,8 +759,11 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord + 1 },
             { X: Xcord + 0, Y: Ycord + 1 },
             { X: Xcord + 1, Y: Ycord + 1 },
-            { X: Xcord + 0, Y: Ycord + 2 },
+            Cord.position[1] === 2
+              ? { X: Xcord + 0, Y: Ycord + 2 }
+              : { X: Xcord, Y: Ycord },
           ];
+          console.log(suggestionsCord);
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
             const busyCord = allPiecesCopy.find(
@@ -764,7 +774,7 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
-              if (index === 4 && Cord.position[1] === 2) {
+              if (index === 4 && suggestionsCord[2].canMoveHandler === true) {
                 canMove = true;
               }
             } else if (
@@ -1158,7 +1168,6 @@ const AllDatasProvider = ({ children }) => {
             (P) =>
               P.position[0] === e.position[0] && P.position[1] === e.position[1]
           );
-
           const Xcord = Cord.position[0];
           const Ycord = Cord.position[1];
           let suggestionsCord = [];
@@ -1484,8 +1493,9 @@ const AllDatasProvider = ({ children }) => {
             { X: Xcord + -1, Y: Ycord - 1 },
             { X: Xcord + 0, Y: Ycord - 1 },
             { X: Xcord + 1, Y: Ycord - 1 },
-            { X: Xcord + 0, Y: Ycord - 2 },
-
+            Cord.position[1] === 7
+              ? { X: Xcord + 0, Y: Ycord - 2 }
+              : { X: Xcord, Y: Ycord },
           ];
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
@@ -1497,7 +1507,7 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
-              if (index === 4 && Cord.position[1] === 7) {
+              if (index === 4 && suggestionsCord[2].canMoveHandler === true) {
                 canMove = true;
               }
             } else if (
@@ -1529,6 +1539,10 @@ const AllDatasProvider = ({ children }) => {
         allPieces,
         suggestions,
         removedPieces,
+        blackTimer,
+        whiteTimer,
+        setBlackTimer,
+        setWihteTimer,
         setRemovedPieces,
         setSuggestions,
         setAllPieces,

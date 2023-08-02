@@ -4,10 +4,6 @@ import "../style/ChessBoard.css";
 import ChessPieces from "./ChessPieces";
 export default function ChessBoard() {
   const data = useContext(contextBox);
-  useEffect(() => {
-    let allPiecesCopy = [...data.allPieces]
-
-  }, [data.removedPieces]);
   return (
     <ul>
       {data.chessHouses.map((e) => (
