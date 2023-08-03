@@ -1,17 +1,17 @@
 import React, { useContext, useEffect } from "react";
+import { useRoutes } from "react-router-dom";
+
 import "./App.css";
 import { contextBox } from "./context/context";
-import ChessBoard from "./components/ChessBoard";
+import Routes from "./Routes/Routes";
 import Timer from "./components/Timer";
 function App() {
   const data = useContext(contextBox);
+  const router = useRoutes(Routes);
   return (
-    <div className="App">
-      <Timer />
-      <div className="chessBoard">
-        <ChessBoard />
-      </div>
-    </div>
+    <>
+    {router}
+    </>
   );
 }
 
