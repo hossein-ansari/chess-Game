@@ -1,25 +1,24 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import chessBoardImg from "../image/chessBoardImg.png";
 import "../style/SelectMood.css";
 export default function SelectMood() {
   return (
     <div className="SelectMood">
-      <div>
-       <img src="../image/blackKing.png"  width="460" height="345" />
+      <div className="imgBar">
+      <img src={chessBoardImg}/>
       </div>
       <div className="container">
-        <form>
-          <select id="gender" name="gender">
-            <option value="none" selected>
-              game mood
-            </option>
-            <option value="female">15 min</option>
-            <option value="male">rapid</option>
-            <option value="other">blitz</option>
-            <option value="other">bullet</option>
+        <form className="form">
+        <label className="labelForm" >select your game mood</label>
+          <select className="selectMoodOptions" name="gender">
+            <option value="15">15 min</option>
+            <option value="10">rapid</option>
+            <option value="3">blitz</option>
+            <option value="1">bullet</option>
           </select>
         </form>
-        <button>
+        <button className="playBtn">
           {" "}
           <NavLink
             className={((act) => (act ? "active" : ""), "links")}
