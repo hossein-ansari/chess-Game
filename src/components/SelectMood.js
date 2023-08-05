@@ -8,8 +8,9 @@ export default function SelectMood() {
   const [inAnimate, setInAnimate] = useState(false);
   function setGameMood(e) {
     data.setGameMood(parseInt(e.target.value));
-    data.setBlackTimer(parseInt(e.target.value));
-    data.setWhiteTimer(parseInt(e.target.value));
+    const times = [parseInt(e.target.value), 0 ]
+    data.setBlackTimer(times);
+    data.setWhiteTimer(times);
   }
   function NavigatePage() {
     setInAnimate(true);

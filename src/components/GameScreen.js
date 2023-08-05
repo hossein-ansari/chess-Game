@@ -1,16 +1,23 @@
-import React from "react";
+import React,{useContext} from "react";
 import ChessBoard from "./ChessBoard";
-import '../style/GameScreen.css'
-import Timer from './BlackTimer'
+import "../style/GameScreen.css";
+import BlackTimer from "./BlackTimer";
+import WhiteTimer from "./WhiteTimer";
+import { Navigate } from "react-router-dom";
+import { contextBox } from "../context/context";
+
 export default function GameScreen() {
- 
+  const data = useContext(contextBox);
+
   return (
     <div className="App">
-        <Timer />
+      {data.gameMood  ? null : <Navigate to={"/"} />}
+
+      <BlackTimer />
       <div className="chessBoard">
         <ChessBoard />
       </div>
-        <Timer />
+      <WhiteTimer />
     </div>
   );
 }

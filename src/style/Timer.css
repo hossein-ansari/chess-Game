@@ -1,5 +1,12 @@
 .timer{
     font-size: 1.2rem;
     border: 3px solid black;
-    padding: 3px 5px;
+    padding: 5px 2rem;
+    margin: 10px 20px ;
+    border-radius: 10px;
+    align-items: center;
+}
+.timer p{
+    border: 1px solid black ;
+    font-family:'Times New Roman', Times, serif;
 }

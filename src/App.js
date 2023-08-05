@@ -4,7 +4,6 @@ import { useRoutes } from "react-router-dom";
 import "./App.css";
 import { contextBox } from "./context/context";
 import Routes from "./Routes/Routes";
-import Timer from "./components/Timer";
 function App() {
   const data = useContext(contextBox);
   const router = useRoutes(Routes);
