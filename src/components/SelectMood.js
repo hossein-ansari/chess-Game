@@ -8,7 +8,8 @@ export default function SelectMood() {
   const [inAnimate, setInAnimate] = useState(false);
   function setGameMood(e) {
     data.setGameMood(parseInt(e.target.value));
-    
+    data.setBlackTimer(parseInt(e.target.value));
+    data.setWhiteTimer(parseInt(e.target.value));
   }
   function NavigatePage() {
     setInAnimate(true);
@@ -18,7 +19,9 @@ export default function SelectMood() {
   }
   return (
     <div className="SelectMood">
-      <div className={`container ${inAnimate && data.gameMood ? "playGame" : ""}`}>
+      <div
+        className={`container ${inAnimate && data.gameMood ? "playGame" : ""}`}
+      >
         <form className="form">
           <label className="labelForm">select your game mood</label>
           <select
@@ -29,15 +32,16 @@ export default function SelectMood() {
             <option selected hidden>
               Choose here
             </option>
-            <option value="15">
-              15 min
-            </option>
+            <option value="15">15 min</option>
             <option value="10">rapid</option>
             <option value="3">blitz</option>
             <option value="1">bullet</option>
           </select>
         </form>
-        <button onClick={data.gameMood !== undefined ? NavigatePage : undefined} className="playBtn">
+        <button
+          onClick={data.gameMood !== undefined ? NavigatePage : undefined}
+          className="playBtn"
+        >
           play
         </button>
       </div>

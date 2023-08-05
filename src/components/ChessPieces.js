@@ -28,15 +28,24 @@ export default function ChessPieces(props) {
           }
           data.setAllPieces(allPiecesCopy);
           data.setSuggestions([]);
+          if (data.turn === "white") {
+            data.setTurn("black");
+          } else {
+            data.setTurn("white");
+          }
         }
       }
     });
   }
+
   return (
     <li
       onClick={(e) => changeCordPiece(e)}
       className={`${spot.color} ${data.suggestions.map((C) =>
-        spot.spot.X === C.X && spot.spot.Y === C.Y && C.canMoveHandler === true
+        spot.spot.X === C.X &&
+        spot.spot.Y === C.Y &&
+        C.canMoveHandler === true &&
+        data.suggestions[0].color === data.turn
           ? " suggestion "
           : null
       )}`}

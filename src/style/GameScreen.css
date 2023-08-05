@@ -6,11 +6,19 @@
   height: 100vh;
   text-align: center;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+.App :nth-child(1) {
+  align-self: flex-end;
+}
+.App :nth-child(3) {
+  align-self: flex-start;
+}
+
 .chessBoard {
-  width:600px;
+  width: 600px;
   height: 600px;
 }
 .chessBoard ul {

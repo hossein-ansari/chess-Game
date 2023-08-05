@@ -21,7 +21,8 @@ const AllDatasProvider = ({ children }) => {
   const [gameMood, setGameMood] = useState();
   const [blackTimer, setBlackTimer] = useState();
   const [whiteTimer, setWhiteTimer] = useState();
-
+  // turn color
+  const [turn, setTurn] = useState("white");
   // render board function
   let colorSet = "white";
   function renderBoardFunction() {
@@ -1540,6 +1541,8 @@ const AllDatasProvider = ({ children }) => {
         blackTimer,
         whiteTimer,
         gameMood,
+        turn,
+        setTurn,
         setGameMood,
         setBlackTimer,
         setWhiteTimer,
