@@ -18,6 +18,7 @@ const AllDatasProvider = ({ children }) => {
   // suggestion houses
   const [suggestions, setSuggestions] = useState([]);
   // timers
+  const [gameMood, setGameMood] = useState();
   const [blackTimer, setBlackTimer] = useState();
   const [whiteTimer, setWhiteTimer] = useState();
 
@@ -1538,6 +1539,8 @@ const AllDatasProvider = ({ children }) => {
         removedPieces,
         blackTimer,
         whiteTimer,
+        gameMood,
+        setGameMood,
         setBlackTimer,
         setWhiteTimer,
         setRemovedPieces,

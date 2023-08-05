@@ -6,7 +6,6 @@
   height: 100vh;
 }
 .container {
-  background-color: rgb(97, 97, 97);
   width: 40vw;
   height: 80vh;
   display: flex;
@@ -16,55 +15,66 @@
   margin-left: 2rem;
   border-radius: 20px;
   border: 2vh solid rgb(20, 20, 20);
-
-}
-
-.imgBar {
-}
-.imgBar img {
-  width: 38vw;
-  height: 80vh;
-  border: 2vh solid rgb(20, 20, 20);
-  border-radius: 20px;
-
+  background-color: black;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.639)),
+    url(../image/chessBoardImg.png);
+  background-size: 522px 471px;
+  background-repeat: no-repeat;
 }
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.labelForm{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-     color: aliceblue;
-     background-color: rgb(113, 113, 113);
-     padding: 5px;
-     border-radius: 5px  5px 0px  0px;
-     width: 300px;
+.labelForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color: gray;
+  background-color: #a49d8b;
+
+  padding: 10px;
+  border-radius: 5px 5px 0px 0px;
+  width: 300px;
 }
 .selectMoodOptions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: aliceblue;
-    background-color: rgb(113, 113, 113);
-    padding: 5px;
-    border-radius:0px  0px 5px  5px ;
-    width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #a49d8b;
+  padding: 10px;
+  border-radius: 0px 0px 5px 5px;
+  width: 300px;
 }
-.playBtn{
-    width: 300px;
-    margin: 1rem;
-    border-radius:10px;
-
+.selectMoodOptions option {
+  background-color: #a49d8b;
+  padding: 10px;
 }
-.playBtn a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(0, 117, 35);
-    padding: 8px;
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
+.playBtn {
+  width: 300px;
+  margin: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00850e;
+  padding: 8px;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+@keyframes playGame {
+  0% {
+    background-size: cover;
+  }
+  100% {
+    background-size: cover;
+    opacity: 0;
+    width: 80vw;
+    height: 120vh;
+  }
+}
+.playGame {
+  animation: playGame 1.65s ease-in-out;
 }
