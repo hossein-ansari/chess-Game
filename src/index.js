@@ -8,11 +8,10 @@ import {AllDatasProvider} from "./context/context";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AllDatasProvider>
-  <React.StrictMode>
   <BrowserRouter>
   <App />
   </BrowserRouter>,
-  </React.StrictMode>
+
   </AllDatasProvider>
 );
 

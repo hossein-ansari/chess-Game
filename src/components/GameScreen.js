@@ -12,12 +12,11 @@ export default function GameScreen() {
   return (
     <div className="App">
       {data.gameMood  ? null : <Navigate to={"/"} />}
-
-      <BlackTimer />
+      <WhiteTimer />
       <div className="chessBoard">
         <ChessBoard />
       </div>
-      <WhiteTimer />
+      <BlackTimer />
     </div>
   );
 }

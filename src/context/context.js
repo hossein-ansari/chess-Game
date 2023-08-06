@@ -762,7 +762,7 @@ const AllDatasProvider = ({ children }) => {
               ? { X: Xcord + 0, Y: Ycord + 2 }
               : { X: Xcord, Y: Ycord },
           ];
-          console.log(suggestionsCord);
+         
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
             const busyCord = allPiecesCopy.find(
@@ -785,10 +785,10 @@ const AllDatasProvider = ({ children }) => {
             } else {
               canMove = false;
             }
-            console.log(Cord.position[1], index);
+
             C.canMoveHandler = canMove;
           });
-          console.log(suggestionsCord);
+         
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
