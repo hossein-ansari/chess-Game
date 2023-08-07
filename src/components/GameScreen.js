@@ -11,7 +11,7 @@ export default function GameScreen() {
   const data = useContext(contextBox);
   console.log(data.whoWon);
   return (
-    <div className="App">
+    <div className={`App ${data.whoWon !== undefined ? 'wonBGI':''}`}>
       {data.gameMood  ? null : <Navigate to={"/"} />}
       {data.whoWon === undefined ? < ><WhiteTimer />
       <div className="chessBoard">

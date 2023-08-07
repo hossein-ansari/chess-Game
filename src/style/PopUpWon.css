@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+
 }
 .winBar {
   border: 2px solid black;
@@ -20,9 +21,9 @@
   align-items: center;
   justify-content: center;
   background-color: #00850e;
-  padding: 8px;
 }
 .playAgain a {
+    padding: 8px;
     color: white;
     font-size: 1.2rem;
     text-decoration: none;

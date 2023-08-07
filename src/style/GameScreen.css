@@ -35,3 +35,8 @@
   width: 75px;
   height: 75px;
 }
+/* won page  */
+.wonBGI{
+  background-image: url(../image/wonImage.jpg);
+  background-size: cover;
+}

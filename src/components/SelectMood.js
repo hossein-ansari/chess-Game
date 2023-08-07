@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, NavLink, Navigate } from "react-router-dom";
 import "../style/SelectMood.css";
 import { contextBox } from "../context/context";
 export default function SelectMood() {
+
   const data = useContext(contextBox);
   const [inNavigate, setInNavigate] = useState(false);
   const [inAnimate, setInAnimate] = useState(false);

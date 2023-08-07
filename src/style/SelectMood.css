@@ -16,9 +16,9 @@
   border-radius: 20px;
   border: 2vh solid rgb(20, 20, 20);
   background-color: black;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.639)),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.792), rgba(0, 0, 0, 0.815)),
     url(../image/chessBoardImg.png);
-  background-size: 522px 471px;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .form {
