@@ -5,23 +5,20 @@ import "../style/Timer.css";
 export default function WhiteTimer() {
   const data = useContext(contextBox);
   
-
   let timer = [...data.whiteTimer];
-
+  if (data.turn === 'white') {
     setTimeout(() => {
       if (timer[1] === 0) {
         timer[1] = 59;
         timer[0] -= 1;
       }
-
       if (timer[1] === 0 && timer[0] === 0) {
         console.log("tamam");
       }
       timer[1] -= 1;
       data.setWhiteTimer(timer);
     }, 1000);
-  
-
+  }
   return (
     <div>
       <p className="timer">

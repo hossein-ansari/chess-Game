@@ -6,19 +6,21 @@ export default function BlackTimer() {
   const data = useContext(contextBox);
  
   let timer = [...data.blackTimer];
- 
+  if (data.turn === 'black') {
+    
     setTimeout(() => {
       if (timer[1] === 0) {
         timer[1] = 59;
         timer[0] -= 1;
       }
-
+      
       if (timer[1] === 0 && timer[0] === 0) {
         console.log("tamam");
       }
       timer[1] -= 1;
       data.setBlackTimer(timer);
     }, 1000);
+  }
   
 
   return (
