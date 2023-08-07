@@ -4,7 +4,7 @@ export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
   function changeCordPiece(e) {
-    console.log(e.target.classList.value);
+    
       data.suggestions.forEach((C) => {
         if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
           // find piece
@@ -25,6 +25,11 @@ export default function ChessPieces(props) {
             );
             if (removedPiece !== undefined) {
               removedPiece.position = [0, 0];
+              
+              if (removedPiece.role === 'King') {
+                data.setWhoWon(oldCoordinate.color)
+                
+              }
             }
             data.setAllPieces(allPiecesCopy);
             data.setSuggestions([]);
@@ -37,7 +42,6 @@ export default function ChessPieces(props) {
         }
       });
   }
-
   return (
     <li
       onClick={(e) => changeCordPiece(e)}

@@ -23,6 +23,8 @@ const AllDatasProvider = ({ children }) => {
   const [whiteTimer, setWhiteTimer] = useState();
   // turn color
   const [turn, setTurn] = useState("white");
+  // who won 
+  const [whoWon,setWhoWon] = useState()
   // render board function
   let colorSet = "white";
   function renderBoardFunction() {
@@ -1542,6 +1544,8 @@ const AllDatasProvider = ({ children }) => {
         whiteTimer,
         gameMood,
         turn,
+        whoWon,
+        setWhoWon,
         setTurn,
         setGameMood,
         setBlackTimer,

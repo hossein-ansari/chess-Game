@@ -1,0 +1,29 @@
+.PopUpWon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.winBar {
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgb(97, 97, 97);
+  color: #eeeeee;
+}
+.playAgain {
+  width: 300px;
+  margin: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00850e;
+  padding: 8px;
+}
+.playAgain a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
