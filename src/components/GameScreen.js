@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import ChessBoard from "./ChessBoard";
 import "../style/GameScreen.css";
 import BlackTimer from "./BlackTimer";
@@ -10,13 +10,19 @@ import PopUpWon from "./PopUpWon";
 export default function GameScreen() {
   const data = useContext(contextBox);
   return (
-    <div className={`App ${data.whoWon !== undefined ? 'wonBGI':''}`}>
-      {data.gameMood  ? null : <Navigate to={"/"} />}
-      {data.whoWon === undefined ? < ><WhiteTimer />
-      <div className="chessBoard">
-        <ChessBoard />
-      </div>
-      <BlackTimer /></ > : <PopUpWon />}
+    <div className={`App ${data.whoWon !== undefined ? "wonBGI" : ""}`}>
+      {data.gameMood ? null : <Navigate to={"/"} />}
+      {data.whoWon === undefined ? (
+        <>
+          <WhiteTimer />
+          <div className="chessBoard">
+            <ChessBoard />
+          </div>
+          <BlackTimer />
+        </>
+      ) : (
+        <PopUpWon />
+      )}
     </div>
   );
 }
