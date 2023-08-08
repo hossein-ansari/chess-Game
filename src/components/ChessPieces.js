@@ -4,17 +4,17 @@ export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
   function changeCordPiece(e) {
-    
-      data.suggestions.forEach((C) => {
-        if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
-          // find piece
-          let allPiecesCopy = [...data.allPieces];
-          let oldCoordinate = allPiecesCopy.find(
-            (P) =>
-              P.position[0] === data.suggestions[0].position[0] &&
-              P.position[1] === data.suggestions[0].position[1]
-          );
-          // move and fight
+    data.suggestions.forEach((C) => {
+      if (spot.spot.X === C.X && spot.spot.Y === C.Y) {
+        // find piece
+        let allPiecesCopy = [...data.allPieces];
+        let oldCoordinate = allPiecesCopy.find(
+          (P) =>
+            P.position[0] === data.suggestions[0].position[0] &&
+            P.position[1] === data.suggestions[0].position[1]
+        );
+        // move and fight
+        if (oldCoordinate.color === data.turn) {
           if (C.canMoveHandler === true) {
             oldCoordinate.position = [C.X, C.Y];
             let removedPiece = allPiecesCopy.find(
@@ -25,10 +25,9 @@ export default function ChessPieces(props) {
             );
             if (removedPiece !== undefined) {
               removedPiece.position = [0, 0];
-              
-              if (removedPiece.role === 'King') {
-                data.setWhoWon(oldCoordinate.color)
-                
+
+              if (removedPiece.role === "King") {
+                data.setWhoWon(oldCoordinate.color);
               }
             }
             data.setAllPieces(allPiecesCopy);
@@ -40,7 +39,8 @@ export default function ChessPieces(props) {
             }
           }
         }
-      });
+      }
+    });
   }
   return (
     <li

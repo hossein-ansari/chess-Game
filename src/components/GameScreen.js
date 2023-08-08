@@ -9,7 +9,6 @@ import PopUpWon from "./PopUpWon";
 
 export default function GameScreen() {
   const data = useContext(contextBox);
-  console.log(data.whoWon);
   return (
     <div className={`App ${data.whoWon !== undefined ? 'wonBGI':''}`}>
       {data.gameMood  ? null : <Navigate to={"/"} />}
