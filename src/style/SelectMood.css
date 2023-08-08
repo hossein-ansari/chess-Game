@@ -4,6 +4,10 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-image: url(../image/selectMoodIMG.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+
 }
 .container {
   width: 40vw;
@@ -18,8 +22,9 @@
   background-color: black;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.792), rgba(0, 0, 0, 0.815)),
     url(../image/chessBoardImg.png);
-  background-size: cover;
+
   background-repeat: no-repeat;
+  background-size: 39vw 77vh;
 }
 .form {
   display: flex;
@@ -66,10 +71,10 @@
 }
 @keyframes playGame {
   0% {
-    background-size: cover;
+    background-size: 39vw 77vh;
   }
   100% {
-    background-size: cover;
+    background-size: 79vw 117vh;
     opacity: 0;
     width: 80vw;
     height: 120vh;
