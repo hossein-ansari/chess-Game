@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { contextBox } from "../context/context";
 import BlackRemovedPieces from "./BlackRemovedPieces";
 export default function ChessPieces(props) {
@@ -24,6 +24,13 @@ export default function ChessPieces(props) {
                 P.position[1] === C.Y &&
                 P.color !== oldCoordinate.color
             );
+            if (
+              oldCoordinate.role === "Pawn" &&
+              (oldCoordinate.position[1] === 8 ||
+                oldCoordinate.position[1] === 1)
+            ) {
+              data.setChangeRolePopUp([true, oldCoordinate.color]);
+            }
             if (removedPiece !== undefined) {
               removedPiece.position = [0, 0];
 
@@ -43,6 +50,7 @@ export default function ChessPieces(props) {
       }
     });
   }
+  // console.log(changeRolePopUp);
   return (
     <li
       onClick={(e) => changeCordPiece(e)}
@@ -62,6 +70,7 @@ export default function ChessPieces(props) {
           ""
         )
       )}
+
     </li>
   );
 }

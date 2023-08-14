@@ -6,6 +6,7 @@ import WhiteTimer from "./WhiteTimer";
 import { Navigate } from "react-router-dom";
 import { contextBox } from "../context/context";
 import PopUpWon from "./PopUpWon";
+import ChangeRole from "./ChangeRole";
 import BlackRemovedPieces from "./BlackRemovedPieces";
 import WhiteRemovedPieces from "./WhiteRemovedPieces";
 export default function GameScreen() {
@@ -33,6 +34,7 @@ export default function GameScreen() {
       ) : (
         <PopUpWon />
       )}
+      {data.changeRolePopUp[0] === true ? <ChangeRole /> : ""}
     </div>
   );
 }

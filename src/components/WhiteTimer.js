@@ -21,7 +21,7 @@ export default function WhiteTimer() {
         }
       }
       if (timer[1] === 0) {
-        timer[1] = 59;
+        timer[1] = 60;
         timer[0] -= 1;
       }
       timer[1] -= 1;

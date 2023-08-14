@@ -23,10 +23,13 @@ const AllDatasProvider = ({ children }) => {
   const [whiteTimer, setWhiteTimer] = useState();
   // turn color
   const [turn, setTurn] = useState("white");
-  // who won 
-  const [whoWon,setWhoWon] = useState()
+  // change role pawn
+  const [changeRolePopUp, setChangeRolePopUp] = useState([false, "white"]);
+  // who won
+  const [whoWon, setWhoWon] = useState();
   // render board function
   let colorSet = "white";
+
   function renderBoardFunction() {
     for (let i = 0; i < houseNumbers.length; i++) {
       for (let I = 0; I < alphabet.length; I++) {
@@ -764,7 +767,7 @@ const AllDatasProvider = ({ children }) => {
               ? { X: Xcord + 0, Y: Ycord + 2 }
               : { X: Xcord, Y: Ycord },
           ];
-         
+
           // moveMent algorithm
           suggestionsCord.forEach((C, index) => {
             const busyCord = allPiecesCopy.find(
@@ -790,7 +793,7 @@ const AllDatasProvider = ({ children }) => {
 
             C.canMoveHandler = canMove;
           });
-         
+
           setSuggestions(suggestionsCord);
           setAllPieces(allPiecesCopyCopy);
         },
@@ -1545,6 +1548,8 @@ const AllDatasProvider = ({ children }) => {
         gameMood,
         turn,
         whoWon,
+        changeRolePopUp,
+        setChangeRolePopUp,
         setWhoWon,
         setTurn,
         setGameMood,
