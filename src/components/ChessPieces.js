@@ -1,5 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import { contextBox } from "../context/context";
+import BlackRemovedPieces from "./BlackRemovedPieces";
 export default function ChessPieces(props) {
   const spot = props.spots;
   const data = useContext(contextBox);
