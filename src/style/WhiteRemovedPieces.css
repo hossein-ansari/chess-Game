@@ -1,0 +1,19 @@
+.removesPiecesUL {
+  /* margin: 1rem; */
+  width: 150px;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.removesPiecesUL li {
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}

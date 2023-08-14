@@ -7,6 +7,7 @@ import { Navigate } from "react-router-dom";
 import { contextBox } from "../context/context";
 import PopUpWon from "./PopUpWon";
 import BlackRemovedPieces from "./BlackRemovedPieces";
+import WhiteRemovedPieces from "./WhiteRemovedPieces";
 export default function GameScreen() {
   const data = useContext(contextBox);
   return (
@@ -14,12 +15,20 @@ export default function GameScreen() {
       {data.gameMood ? null : <Navigate to={"/"} />}
       {data.whoWon === undefined ? (
         <>
-          <BlackRemovedPieces />
-          <WhiteTimer />
+          <div>
+            {" "}
+            <BlackRemovedPieces />
+            <WhiteTimer />
+          </div>
+
           <div className="chessBoard">
             <ChessBoard />
           </div>
-          <BlackTimer />
+          <div>
+            {" "}
+            <BlackTimer />
+            <WhiteRemovedPieces />
+          </div>
         </>
       ) : (
         <PopUpWon />

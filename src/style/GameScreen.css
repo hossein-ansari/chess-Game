@@ -9,12 +9,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
-.App :nth-child(1) {
+.App :nth-child(1){
   align-self: flex-end;
 }
-.App :nth-child(3) {
+.App :nth-child(3)
+{
   align-self: flex-start;
+  
 }
 
 .chessBoard {
@@ -36,7 +39,7 @@
   height: 75px;
 }
 /* won page  */
-.wonBGI{
+.wonBGI {
   background-image: url(../image/wonImage.jpg);
   background-size: cover;
 }
