@@ -34,7 +34,11 @@ export default function GameScreen() {
       ) : (
         <PopUpWon />
       )}
-      {data.changeRolePopUp[0] === true ? <ChangeRole /> : ""}
+      {data.changeRolePopUp[0] === true && data.whoWon === undefined ? (
+        <ChangeRole />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

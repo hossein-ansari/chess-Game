@@ -24,7 +24,12 @@ const AllDatasProvider = ({ children }) => {
   // turn color
   const [turn, setTurn] = useState("white");
   // change role pawn
-  const [changeRolePopUp, setChangeRolePopUp] = useState([false, "white"]);
+  const [changeRolePopUp, setChangeRolePopUp] = useState([
+    false,
+    "white",
+    0,
+    0,
+  ]);
   // who won
   const [whoWon, setWhoWon] = useState();
   // render board function
@@ -71,6 +76,7 @@ const AllDatasProvider = ({ children }) => {
 
   // render pieces functions
   // white pieces
+
   function renderWhiteRooks() {
     const defaultPosition = [
       { X: 1, Y: 1 },
@@ -941,8 +947,6 @@ const AllDatasProvider = ({ children }) => {
               i++;
             }
           }
-
-          console.log(suggestionsCord);
 
           // find available Cord
 
