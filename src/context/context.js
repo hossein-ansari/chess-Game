@@ -784,7 +784,11 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
-              if (index === 4 && suggestionsCord[2].canMoveHandler === true) {
+              if (
+                index === 4 &&
+                suggestionsCord[2].canMoveHandler === true 
+              ) {
+              
                 canMove = true;
               }
             } else if (
@@ -793,6 +797,9 @@ const AllDatasProvider = ({ children }) => {
               busyCord.color !== Cord.color
             ) {
               canMove = true;
+              if (index === 4) {
+                canMove = false;
+              }
             } else {
               canMove = false;
             }
@@ -1524,6 +1531,9 @@ const AllDatasProvider = ({ children }) => {
               busyCord.color !== Cord.color
             ) {
               canMove = true;
+              if (index === 4) {
+                canMove = false;
+              }
             } else {
               canMove = false;
             }
