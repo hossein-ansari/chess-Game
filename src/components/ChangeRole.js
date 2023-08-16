@@ -4,6 +4,7 @@ import "../style/changeRole.css";
 export default function ChangeRole() {
   const data = useContext(contextBox);
   function changeRoleHandler(e) {
+    console.log(e.clientX);
     let allPiecesCopy = [...data.allPieces];
     let changedPiece = allPiecesCopy.find(
       (P) =>
@@ -567,7 +568,10 @@ export default function ChangeRole() {
     data.setChangeRolePopUp([false, "white", 0, 0]);
   }
   return (
-    <ul className="changeRoleUl">
+    <ul
+      style={{top: `${data.changeRolePopUp[5]}`, left: `${data.changeRolePopUp[4]}` }}
+      className="changeRoleUl"
+    >
       <li
         onClick={(e) => changeRoleHandler(e)}
         className={`${data.changeRolePopUp[1] + "Rook"}`}

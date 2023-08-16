@@ -1,16 +1,17 @@
 .changeRoleUl {
   position: absolute;
-  top: 43vh;
-  left: 43vw;
-  width: 320px;
-  height: 80px;
+  width: 300px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgba(0, 165, 82, 0.913);
 }
 .changeRoleUl li {
-  width: 80px;
-  height: 80px;
+ 
+  width: 75px;
+  height: 75px;
   background-size: cover;
   
 }

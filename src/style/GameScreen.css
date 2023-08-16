@@ -23,6 +23,7 @@
 .chessBoard {
   width: 600px;
   height: 600px;
+  
 }
 .chessBoard ul {
   width: 100%;
@@ -42,4 +43,12 @@
 .wonBGI {
   background-image: url(../image/wonImage.jpg);
   background-size: cover;
+}
+/* change role style  */
+.bgcBlack{
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.677);
+}
+.ZIndex{
+  z-index: -10;
 }

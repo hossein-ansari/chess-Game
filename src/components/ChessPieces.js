@@ -29,7 +29,8 @@ export default function ChessPieces(props) {
               (oldCoordinate.position[1] === 8 ||
                 oldCoordinate.position[1] === 1)
             ) {
-              data.setChangeRolePopUp([true, oldCoordinate.color,C.X, C.Y]);
+              data.setChangeRolePopUp([true, oldCoordinate.color,C.X, C.Y,e.clientX,e.clientY]);
+              ;
             }
             if (removedPiece !== undefined) {
               removedPiece.position = [0, 0];

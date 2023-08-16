@@ -784,11 +784,7 @@ const AllDatasProvider = ({ children }) => {
               canMove = true;
             } else if (busyCord === undefined && index !== 2) {
               canMove = false;
-              if (
-                index === 4 &&
-                suggestionsCord[2].canMoveHandler === true 
-              ) {
-              
+              if (index === 4 && suggestionsCord[2].canMoveHandler === true) {
                 canMove = true;
               }
             } else if (
