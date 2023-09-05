@@ -11,19 +11,16 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.App :nth-child(1){
+.App :nth-child(1) {
   align-self: flex-end;
 }
-.App :nth-child(3)
-{
+.App :nth-child(3) {
   align-self: flex-start;
-  
 }
 
 .chessBoard {
   width: 600px;
   height: 600px;
-  
 }
 .chessBoard ul {
   width: 100%;
@@ -45,10 +42,64 @@
   background-size: cover;
 }
 /* change role style  */
-.bgcBlack{
+.bgcBlack {
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.677);
 }
-.ZIndex{
+.ZIndex {
   z-index: -10;
+}
+
+@media only screen and (max-width: 925px) {
+  .chessBoard {
+    width: 500px;
+    height: 500px;
+  }
+  .chessBoard ul li {
+    width: 62.5px;
+    height: 62.5px;
+  }
+}
+@media only screen and (max-width: 825px) {
+  .chessBoard {
+    width: 400px;
+    height: 400px;
+  }
+  .chessBoard ul li {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 725px) {
+  .chessBoard {
+    width: 300px;
+    height: 300px;
+  }
+
+  .chessBoard ul li {
+    width: 37.5px;
+    height: 37.5px;
+  }
+}
+@media only screen and (max-width: 625px) {
+  .chessBoard {
+    width: 200px;
+    height: 200px;
+  }
+
+  .chessBoard ul li {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .chessBoard {
+    width: 100px;
+    height: 100px;
+  }
+
+  .chessBoard ul li {
+    width: 12.5px;
+    height:12.5px;
+  }
 }

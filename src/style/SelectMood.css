@@ -6,7 +6,8 @@
   height: 100vh;
   background-image: url(../image/selectMoodIMG.jpg);
   background-repeat: no-repeat;
-  background-size: 100vw 100vh;
+  background-size: cover;
+  background-position: center center;
 }
 .container {
   width: 40vw;
@@ -23,7 +24,8 @@
     url(../image/chessBoardImg.png);
 
   background-repeat: no-repeat;
-  background-size: 39vw 77vh;
+  background-size: cover;
+  background-position: center center;
 }
 .form {
   display: flex;
@@ -51,7 +53,7 @@
   border-radius: 0px 0px 5px 5px;
   width: 300px;
 }
-.selectMoodOptions option {
+.selectMoodOptionsOption {
   background-color: #a49d8b;
   padding: 10px;
 }
@@ -81,4 +83,101 @@
 }
 .playGame {
   animation: playGame 1.65s ease-in-out;
+}
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 1024px) {
+  .container {
+    height: 70vh;
+  }
+  .labelForm,
+  .selectMoodOptions,
+  .selectMoodOptions option,
+  .playBtn {
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .container {
+    height: 60vh;
+  }
+  .form,
+  .selectMoodOptions option,
+  .labelForm,
+  .selectMoodOptions,
+  .playBtn {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    height: 50vh;
+  }
+  .form,
+  .selectMoodOptions option,
+  .labelForm,
+  .selectMoodOptions,
+  .playBtn {
+    padding: 4px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    height: 40vh;
+  }
+  .form,
+  .selectMoodOptions option,
+  .labelForm,
+  .playBtn {
+    width: 120px;
+    padding: 3px;
+    font-size: 0.6rem;
+  }
+  .labelForm {
+    width: 120px;
+
+    border-radius: 0px 8px 0px 0px;
+  }
+  .selectMoodOptions {
+    width: 120px;
+    border-radius: 0px 0px 5px 5px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 58vw;
+    height: 38vh;
+  }
+  .form,
+  .selectMoodOptions option,
+  .selectMoodOptions,
+  .playBtn {
+    width: 150px;
+    padding: 3px;
+    font-size: 0.5rem;
+  }
+  .labelForm {
+    width: 150px;
+    padding: 3px;
+    font-size: 0.5rem;
+    border-radius: 0px 8px 0px 0px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .container {
+    height: 45vh;
+    width: 58vw;
+
+  }
+  .form,
+  .selectMoodOptions option,
+  .labelForm,
+  .selectMoodOptions,
+  .playBtn {
+    width: 120px;
+    padding: 3px;
+    font-size: 0.5rem;
+  }
 }

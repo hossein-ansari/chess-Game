@@ -34,10 +34,10 @@ export default function SelectMood() {
             <option selected hidden>
               Choose here
             </option>
-            <option value="15">15 min</option>
-            <option value="10">rapid</option>
-            <option value="3">blitz</option>
-            <option value="1">bullet</option>
+            <option className="selectMoodOptionsOption" value="15">15 min</option>
+            <option className="selectMoodOptionsOption" value="10">rapid</option>
+            <option className="selectMoodOptionsOption" value="3">blitz</option>
+            <option className="selectMoodOptionsOption" value="1">bullet</option>
           </select>
         </form>
         <button
